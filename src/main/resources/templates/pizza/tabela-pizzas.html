@@ -1,0 +1,43 @@
+<table
+	class="table table-hover table-condensed table-striped table-bordered" th:fragment="tabela-pizzas">
+	<thead>
+		<tr>
+			<td style="width: 5%">#</td>
+			<td style="width: 30%">Nome</td>
+			<td style="width: 10%">Preço</td>
+			<td style="width: 10%">Categoria</td>
+			<td style="width: 25%">Ingredientes</td>
+			<td style="width: 10%">Editar</td>
+			<td style="width: 10%">Deletar</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="pizza : ${pizzas}" th:attr="data-id=${pizza.id}" >
+			<td><span th:text="${pizza.id}"></span></td>
+			<td><span th:text="${pizza.nome}"></span></td>			
+			<td>R$<span th:text="${#numbers.formatDecimal(pizza.preco, 0, 'DEFAULT', 2, 'DEFAULT')}"></span></td>
+			<td><span th:text="${pizza.categoria}"></span></td>
+			<td>
+				<span th:each="ingrediente : ${pizza.ingredientes}">
+					<span th:text="${ingrediente.nome}"></span>
+					<br />
+				</span>
+			</td>
+			<td><button type="button" class="btn btn-warning btn-editar">Editar</button></td>
+			<td><button type="button" class="btn btn-danger btn-deletar">Deletar</button></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="7">Pizzas cadastrados : <span
+				th:text="${pizzas.size()}" id="quantidade-pizzas"></span></td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#modal-pizza">Cadastrar pizza</button>
+			</td>
+		</tr>
+	</tfoot>
+</table>

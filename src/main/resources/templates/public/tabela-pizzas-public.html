@@ -1,0 +1,25 @@
+<table
+	class="table table-hover table-condensed table-striped table-bordered" th:fragment="tabela-pizzas-public">
+	<thead>
+		<tr>
+			<td style="width: 10%"><span th:text="#{views.tabela-pizzas-public.nome}"></span></td>
+			<td style="width: 10%"><span th:text="#{views.tabela-pizzas-public.endereco}"></span></td>
+			<td style="width: 10%"><span th:text="#{views.tabela-pizzas-public.atendendo}"></span></td>
+			<td style="width: 10%"><span th:text="#{views.tabela-pizzas-public.entre-contato}"></span></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="pizzaria : ${pizzarias}" th:attr="data-id=${pizzaria.id}" >
+			<td><span th:text="${pizzaria.nome}"></span></td>
+			<td><span th:text="${pizzaria.endereco}"></span></td>
+			<td><span th:text="${pizzaria.dataCadastro}"></span></td>
+			<td><a href="#">Contato</a></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4"><span th:text="#{views.tabela-pizzas-public.pizzarias}"></span> <span
+				th:text="${pizzarias.size()}" id="quantidade-pizzarias"></span></td>
+		</tr>
+	</tfoot>
+</table>

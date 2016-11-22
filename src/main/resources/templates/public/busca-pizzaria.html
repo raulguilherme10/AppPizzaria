@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	
+	<title th:text="#{view.generic.titulo}"></title>
+	
+	<style type="text/css">
+	
+		#btn_buscar{
+			
+			margin-top: 19px;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<!-- Menu Público-->
+		<div th:replace="public/menu-public :: menu-public"></div>
+		
+		<section>
+			
+			<div id="consulta-pizzarias">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><span th:text="#{views.busca-pizzaria.panel-title}"></span></h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+						
+							<div class="col-md-4">
+							
+								<label for="pizza_pesquisa"></label> 
+								<select class="form-control" id="pizza_pesquisa">
+									<option th:each="nomePizza : ${nomePizzas}" th:value="${nomePizza.nome}">
+										<span th:text="${nomePizza.nome}"></span>
+									</option>
+								</select>
+								
+							</div>
+							
+							<div class="col-md-4">
+								<button type="button" id="btn_buscar" class="btn btn-default"><span th:text="#{views.busca-pizzaria.btn-buscar}"></span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<div id="secao-pizzarias"></div>
+		</section>
+		
+	</div>
+	
+	
+	
+	
+	<script src="/js/jquery-3.1.1.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/pizzarias.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<meta charset="UTF-8" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	
+	<title th:text="#{view.generic.titulo}"></title>
+</head>
+<body>	
+	<div class="container">
+		
+		<!-- Menu -->
+		<div th:replace="fragment/menu :: menu"></div>
+
+		<div th:if="${error != null}">
+			<div class="alert alert-danger">
+				<span th:text="${error}"></span>
+			</div>
+		</div>
+		<div th:if="${success != null}">
+			<div class="alert alert-info">
+				<span th:text="${success}"></span>
+			</div>
+		</div>
+		
+		<section id="secao-pizza">
+			<div th:replace="pizza/tabela-pizzas :: tabela-pizzas"></div>
+		</section>
+	
+	</div>
+
+	<div th:replace="pizza/modal-pizza :: modal-pizza"></div>
+	
+	<script src="/js/jquery-3.1.1.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/pizzas.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
