@@ -11,8 +11,8 @@ import br.com.alura.pizzaria.model.Pizzaria;
 @Repository
 public interface IngredienteRepository extends CrudRepository<Ingrediente, Long>{
 	
-	public List<Ingrediente> findAllByDono(Pizzaria dono);
+	List<Ingrediente> findAllByDono(Pizzaria dono);
 
-	public Ingrediente findByIdAndDono(Long id, Pizzaria dono);
+	Ingrediente findByIdAndDono(Long id, Pizzaria dono);
 
 }

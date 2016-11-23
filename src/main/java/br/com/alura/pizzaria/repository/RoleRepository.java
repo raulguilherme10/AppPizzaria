@@ -6,6 +6,6 @@ import br.com.alura.pizzaria.model.Roles;
 
 public interface RoleRepository extends CrudRepository<Roles, Long>{
 
-	public Roles findByNome(String nome);
+	Roles findByNome(String nome);
 
 }
