@@ -17,4 +17,9 @@ public class RoleService {
 		Roles roles = roleRepository.findByNome(nome);
 		return roles;
 	}
+	
+	public void addRole(Roles roles){
+		
+		roleRepository.save(roles);
+	}
 }
