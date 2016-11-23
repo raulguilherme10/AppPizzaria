@@ -13,16 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.alura.pizzaria.exception.IngredienteInvalidoException;
 import br.com.alura.pizzaria.exception.PizzaInvalidaException;
-import br.com.alura.pizzaria.model.CategoriaDeIngrediente;
 import br.com.alura.pizzaria.model.CategoriaDePizza;
 import br.com.alura.pizzaria.model.Pizza;
-import br.com.alura.pizzaria.repository.IngredienteRepository;
-import br.com.alura.pizzaria.repository.PizzaRepository;
 import br.com.alura.pizzaria.service.IngredienteService;
 import br.com.alura.pizzaria.service.PizzaService;
-import br.com.alura.pizzaria.service.PizzariaService;
 
 @Controller
 @RequestMapping("/pizza")
@@ -33,9 +28,6 @@ public class PizzaController {
 	
 	@Autowired
 	private IngredienteService ingredienteService;
-	
-	@Autowired
-	private PizzariaService pizzariaService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model){

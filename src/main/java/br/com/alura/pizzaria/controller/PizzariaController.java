@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.alura.pizzaria.model.Pizzaria;
 import br.com.alura.pizzaria.model.Roles;
@@ -14,7 +13,6 @@ import br.com.alura.pizzaria.service.PizzaService;
 import br.com.alura.pizzaria.service.PizzariaService;
 import br.com.alura.pizzaria.service.RoleService;
 
-import java.io.Console;
 import java.util.HashSet;
 import java.util.Set;
 

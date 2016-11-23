@@ -52,14 +52,12 @@
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-jpa</artifactId>
-		    <version>1.4.2.RELEASE</version>
 		</dependency>
 		
 		<!-- Configuração BD (drive de conexão MySQL - Dev)-->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.40</version>
 		</dependency>
 		
 		<!-- Configuração BD (drive de conexão MySQL - Prod)-->
@@ -73,14 +71,12 @@
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-		    <version>1.3.6.RELEASE</version>
 		</dependency>
 		
 		<!-- Complemento da engine de template, para ativar funções de seguraça no html -->
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>	
-			<version>2.1.2.RELEASE</version>
 	  	</dependency>
 
 
@@ -102,7 +98,6 @@
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-dependency-plugin</artifactId>
-			    <version>2.3</version>
 			    <executions>
 			        <execution>
 			            <phase>package</phase>
