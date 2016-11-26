@@ -13,7 +13,7 @@ public interface PizzaRepository extends CrudRepository<Pizza, Long>{
 
 	List<Pizza> findAllByDono(Pizzaria dono);
 
-	Pizza findByIdAndDono(Long id, Pizzaria dono);
+	Pizza findByIdAndDono(Long id, Pizzaria dorno);
 
 	List<Pizza> findAll();
 

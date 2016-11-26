@@ -64,8 +64,8 @@ public class PizzaController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseBody
-	public Pizza edit(@PathVariable Long id){
+	public ResponseEntity<Pizza> edit(@PathVariable Long id){
 		Pizza pizza = pizzaService.find(id);
-		return pizza;
+		return new ResponseEntity<>(pizza, HttpStatus.OK);
 	}
 }

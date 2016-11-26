@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pizza {
 	
@@ -38,6 +40,7 @@ public class Pizza {
 	
 	@ManyToOne
 	@JoinColumn(name="dono")
+	@JsonIgnore
 	private Pizzaria dono;
 
 	public Long getId() {

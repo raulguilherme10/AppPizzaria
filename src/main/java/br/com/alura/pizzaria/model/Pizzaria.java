@@ -1,7 +1,6 @@
 package br.com.alura.pizzaria.model;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,10 +34,6 @@ public class Pizzaria implements UserDetails{
 	private Usuario usuario;
 	
 	@NotNull
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Calendar dataCadastro;
-	
-	@NotNull
 	@NotEmpty
 	private String nome;
 	
@@ -47,9 +41,13 @@ public class Pizzaria implements UserDetails{
 	@NotEmpty
 	private String endereco;
 	
+	@NotNull
+	@NotEmpty
 	@ElementCollection
 	private Set<String> email;
 	
+	@NotNull
+	@NotEmpty
 	@ElementCollection
 	private Set<String> telefone;
 	
@@ -73,14 +71,6 @@ public class Pizzaria implements UserDetails{
 
 	public void setRoles(Set<Roles> roles) {
 		this.roles = roles;
-	}
-
-	public Calendar getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Calendar dataCadastro) {
-		this.dataCadastro = dataCadastro;
 	}
 
 	public String getNome() {

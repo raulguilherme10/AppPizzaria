@@ -33,9 +33,16 @@ public class PizzaService {
 	}
 	
 	public Pizza find(Long id){
-		
 		Pizzaria dono = pizzariaService.getPizzariaLogado();
-		return pizzaRepository.findByIdAndDono(id, dono);
+		Pizza pizza;
+		
+		try {
+			pizza = pizzaRepository.findByIdAndDono(id, dono);
+		} catch (Exception e) {
+			pizza = new Pizza();
+		}
+		
+		return pizza;
 	}
 	
 	public void delete(Long id){

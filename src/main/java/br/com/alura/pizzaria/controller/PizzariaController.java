@@ -1,8 +1,14 @@
 package br.com.alura.pizzaria.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,9 +18,6 @@ import br.com.alura.pizzaria.model.Roles;
 import br.com.alura.pizzaria.service.PizzaService;
 import br.com.alura.pizzaria.service.PizzariaService;
 import br.com.alura.pizzaria.service.RoleService;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/")
@@ -44,8 +47,13 @@ public class PizzariaController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/account")
-	public String createAccount(Pizzaria pizzaria, Model model){
-
+	public String createAccount(@Valid Pizzaria pizzaria, BindingResult result , Model model){
+		
+		// verificando se tem erro no formulário
+		if(result.hasErrors()){
+			return this.create(pizzaria);
+		}
+		
 		// 1 - Trazer a role role_admin
 		Set<Roles> role = new HashSet<Roles>();
 		
@@ -57,7 +65,7 @@ public class PizzariaController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/account")
-	public String create(){
+	public String create(Pizzaria pizzaria){
 		return "public/adicionarconta";
 	}
 }

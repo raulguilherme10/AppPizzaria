@@ -3,6 +3,8 @@ package br.com.alura.pizzaria.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,6 +19,8 @@ public class Usuario {
 	
 	@NotNull
 	@NotEmpty
+	@Min(3)
+	@Max(10)
 	private String senha;
 	
 	@NotNull

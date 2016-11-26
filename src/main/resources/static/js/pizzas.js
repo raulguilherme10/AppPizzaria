@@ -4,6 +4,8 @@ $(document).ready(function(){
 	
 	aplicarListenerBtnSalvar();
 	
+	aplicarListenerEditar();
+	
 });
 
 var limparModal = function(){
@@ -66,27 +68,24 @@ var aplicarListener = function(){
 	});
 	
 	
+	
+	
+}
+
+
+var aplicarListenerEditar = function(){
+	
 	/*Função para o btn editar*/
 	$('.btn-editar').on('click', function(){
-		
 		var id = $(this).parents('tr').data('id');
 		var url = "pizza/" + id;
 		
+		
+		
 		$.get(url)
 			.done(function(pizza){
-				
-				$('#id').val(pizza.id);
-				$('#nome').val(pizza.nome);
-				$('#preco').val(pizza.preco);
-				$('#categoria').val(pizza.categoria);
-				
-				pizza.ingredientes.forEach(function(ingrediente){
-					var id = ingrediente.id;
-					$('#ingredientes option[value = '+ id +']').attr('selected', true);
-				});
-				
-				$('#modal-pizza').modal('show');
+				alert(pizza);
 			});
+		
 	});
-	
 }
